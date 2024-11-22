@@ -2,7 +2,7 @@ using AllatboltProject.Backend.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Web
+
 
 // Add services to the container.
 
@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//OURS
+builder.ConfigureWebHost();
 builder.Services.AddBackend();
 
 var app = builder.Build();

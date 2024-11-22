@@ -9,9 +9,10 @@
             option.AddPolicy(name: "AllatCors",
             policy =>
             {
-                policy.WithOrigins("https://0.0.0.0:720/")
-
-            });
+                policy.WithOrigins("https://localhost:7020/")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+            }));
         }
     }
 }
