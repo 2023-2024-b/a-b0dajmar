@@ -32,4 +32,6 @@ app.MapControllers();
 
 app.UseCors("AllatCors");
 
+app.ConfigureWebApp();
+
 app.Run();

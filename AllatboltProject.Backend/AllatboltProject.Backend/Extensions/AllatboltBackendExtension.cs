@@ -1,4 +1,6 @@
-﻿namespace AllatboltProject.Backend.Extensions
+﻿using AllatboltProject.Backend.Context;
+
+namespace AllatboltProject.Backend.Extensions
 {
     public static class AllatboltBackendExtension
     {
@@ -13,6 +15,16 @@
                         .AllowAnyHeader()
                         .AllowAnyMethod();
             }));
+        }
+        public static void ConfigureInMemoryContext(this IServiceCollection services)
+        {
+            string dbNameInMemoryContext = "Allatbolt" + Guid.NewGuid();
+            services.AddDbContext<AllatboltInMemoryContext>
+            (
+                 options => options.UseInMemoryDatabase(databaseName: dbNameInMemoryContext),
+                 ServiceLifetime.Scoped,
+                 ServiceLifetime.Scoped
+            );
         }
     }
 }
